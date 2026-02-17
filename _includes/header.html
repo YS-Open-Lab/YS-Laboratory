@@ -40,20 +40,16 @@
 
   <input class="nav-toggle" type="checkbox" aria-label="show/hide nav">
 
-  <nav>
-    {% assign pages = site.pages
-      | where_exp: "page", "page.nav"
-      | sort: "nav.order"
-    %}
-    {% for page in pages %}
-      {% if page.nav %}
-        <a
-          href="{{ page.dir | relative_url | uri_escape }}"
-          data-tooltip="{{ page.nav.tooltip | xml_escape }}"
-        >
-          {{ page.title }}
-        </a>
-      {% endif %}
-    {% endfor %}
+<nav>
+    <a href="{{ '/research/' | relative_url }}">Research & Publications</a>
+    <a href="{{ '/projects/' | relative_url }}">Resources</a>
+    <a href="{{ '/team/' | relative_url }}">Team</a>
+    <a href="{{ '/blog/' | relative_url }}">About</a>
+    <a href="{{ '/contact/' | relative_url }}">Collaboration</a>
+    <a href="{{ '/contact/' | relative_url }}">Contact</a>
+
+    <span style="color: white; opacity: 0.3; margin: 0 10px;">|</span>
+    <a href="/" style="font-weight: bold; min-width: auto;">中</a>
+    <span style="color: white; opacity: 0.5;">/</span>
+    <a href="/en/" style="min-width: auto;">EN</a>
   </nav>
-</header>
