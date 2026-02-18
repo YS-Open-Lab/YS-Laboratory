@@ -8,12 +8,21 @@ title: Research & Publications
 
 ## 代表性成果（Featured Publications）
 
-{% include search-info.html %}
-
 {% include list.html data="citations" component="citation" filters="featured: true" %}
 
 {% include section.html %}
 
 ## 全部成果（All Publications）
 
-{% include list.html data="citations" component="citation" %}
+{% include list.html data="citations" component="citation" style="rich" %}
+
+{% include section.html %}
+
+## 按年份浏览
+
+{% assign years = site.data.citations | map: "date" | map: "split: '-'" | map: "first" | uniq | sort | reverse %}
+
+{% for year in years %}
+### {{ year }}
+{% include list.html data="citations" component="citation" filters="date: ^{{ year }}" %}
+{% endfor %}
